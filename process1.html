@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JNP Banquet Hall</title>
+https://YOUR-USERNAME.github.io/jnp-banquet-hall
+
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+h2 {
+    color: #b30000;
+    margin-bottom: 10px;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    background: #b30000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ---------- NAV ---------- */
+nav {
+    background: #800000;
+    text-align: center;
+    padding: 10px;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    margin: 0 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    text-decoration: underline;
+}
+
+/* ---------- PAGE SECTIONS ---------- */
+.page {
+    display: none;
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.page.active {
+    display: block;
+}
+
+/* ---------- FORM ELEMENTS ---------- */
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+}
+
+button.action {
+    background: #b30000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button.action:hover {
+    background: #800000;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* ---------- ADMIN ---------- */
+.admin-list li {
+    background: #f2f2f2;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>JNP Banquet Hall</h1>
+    <p>Naigaon East</p>
+</header>
+
+<nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('booking')">Booking</button>
+    <button onclick="showPage('gallery')">Gallery</button>
+    <button onclick="showPage('review')">Review</button>
+    <button onclick="showPage('payment')">Payment</button>
+    <button onclick="showPage('admin')">Admin</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page active">
+    <h2>Venue Details</h2>
+    <p><b>Capacity:</b> 500 Guests</p>
+    <ul>
+        <li>Weddings</li>
+        <li>Birthday Parties</li>
+        <li>Corporate Events</li>
+        <li>Cultural Programs</li>
+    </ul>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="page">
+    <h2>Hall Booking</h2>
+    <input id="customerName" placeholder="Customer Name">
+    <input id="eventName" placeholder="Event Name">
+    <input id="eventDate" type="date">
+    <input id="eventTime" type="time">
+    <input id="guestCount" type="number" placeholder="Number of Guests">
+    <button class="action" onclick="bookHall()">Book Hall</button>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="page">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        <img src="wedding_stage.jpg"><img src="https://in.images.search.yahoo.com/images/view;_ylt=AwrPrtsPT2tp2Nw4Q5C9HAx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzVkMTQ4MGRjMWI1MzExZGIxNzhkYzhkZmMxNzk1MGUyBGdwb3MDMzIEaXQDYmluZw--?back=https%3A%2F%2Fin.images.search.yahoo.com%2Fsearch%2Fimages%3Fp%3Dwedding%2Bstage%2Bdecoration%26norw%3D1%26ei%3DUTF-8%26type%3DE210IN826G0%26fr%3Dmcafee%26fr2%3Dsp-qrw-corr-top%26tab%3Dorganic%26ri%3D32&w=800&h=800&imgurl=media.weddingz.in%2Fimages%2F20220913173902%2FAnais-EVents-800x800.jpg&rurl=https%3A%2F%2Fhappylagan.in%2Fwedding-stage-decoration-ideas%2F&size=151KB&p=wedding+stage+decoration&oid=5d1480dc1b5311db178dc8dfc17950e2&fr2=sp-qrw-corr-top&fr=mcafee&tt=Happy+Lagan+-+Wedding+and+Event+Planning+Services&b=0&ni=160&no=32&ts=&tab=organic&norw=1&sigr=svqGHLjoVIBo&sigb=mlzmRzCEt3fP&sigi=P_AUnUlzFjZ6&sigt=i99pXAr5aqOH&.crumb=TPCzrGI2VzV&fr=mcafee&fr2=sp-qrw-corr-top&norw=1&type=E210IN826G0"
+        <img src="reception_hall.jpg"><img src="https://tse2.mm.bing.net/th/id/OIP.iJ2LQyvype1J1LljdLmYlQHaE7?pid=Api&P=0&h=180"
+        <img src="birthday_setup.jpg"></div><img src="https://in.images.search.yahoo.com/images/view;_ylt=AwrKBPmYT2tpl_M0xXO9HAx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkA2UwYmQwN2RhNjRmMmE3NTBjN2QzOTc5YTY5Mjg0Mzk5BGdwb3MDNgRpdANiaW5n?back=https%3A%2F%2Fin.images.search.yahoo.com%2Fsearch%2Fimages%3Fp%3Dbirthday%2Bsetup%26norw%3D1%26ei%3DUTF-8%26type%3DE210IN826G0%26fr%3Dmcafee%26fr2%3Dsp-qrw-corr-top%26tab%3Dorganic%26ri%3D6&w=1080&h=1075&imgurl=i.pinimg.com%2Foriginals%2Fec%2F10%2Fd6%2Fec10d6e9d1025fe8ffce5d326ece210d.jpg&rurl=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fa-stunning-birthday-setup-boutiqueballoonsmelbourne-beyondelegantbysherry-balloongarland-balloonarch-bal--360921357636619090%2F&size=170KB&p=birthday+setup&oid=e0bd07da64f2a750c7d3979a69284399&fr2=sp-qrw-corr-top&fr=mcafee&tt=Stunning+Birthday+Balloon+Setup&b=0&ni=160&no=6&ts=&tab=organic&norw=1&sigr=whYhP4ivcc1C&sigb=KdH4nJMT8nop&sigi=fxa8u4EhBMnC&sigt=xseoiG.a65CH&.crumb=TPCzrGI2VzV&fr=mcafee&fr2=sp-qrw-corr-top&norw=1&type=E210IN826G0"
+        <img src="conference_setup.jpg"><img src="https://in.images.search.yahoo.com/images/view;_ylt=AwrKBPnAT2tpsvU2jLG9HAx.;_ylu=c2VjA3NyBHNsawNpbWcEb2lkA2Y4NzQzNGJiMTIyYTY0MDdmNDE4NWViZmEyZWE0YmViBGdwb3MDMQRpdANiaW5n?back=https%3A%2F%2Fin.images.search.yahoo.com%2Fsearch%2Fimages%3Fp%3Dconference%2Bmeeting%26ei%3DUTF-8%26type%3DE210IN826G0%26fr%3Dmcafee%26fr2%3Dsa-gp-search%26tab%3Dorganic%26ri%3D1&w=1300&h=956&imgurl=c8.alamy.com%2Fcomp%2F2CWWY7P%2Fbusiness-people-video-conferencing-in-conference-room-meeting-2CWWY7P.jpg&rurl=https%3A%2F%2Fwww.alamy.com%2Fbusiness-people-video-conferencing-in-conference-room-meeting-image377354314.html&size=132KB&p=conference+meeting&oid=f87434bb122a6407f4185ebfa2ea4beb&fr2=sa-gp-search&fr=mcafee&tt=Business+people+video+conferencing+in+conference+room+meeting+Stock+...&b=0&ni=160&no=1&ts=&tab=organic&sigr=Ihsa2qjUwBOA&sigb=5OmW8hRzvgOW&sigi=.OafpA85HwfX&sigt=RXqhH_8T5bM6&.crumb=TPCzrGI2VzV&fr=mcafee&fr2=sa-gp-search&type=E210IN826G0"
+    </div>
+</section>
+
+<!-- REVIEW -->
+<section id="review" class="page">
+    <h2>Review & Feedback</h2>
+    <input id="reviewName" placeholder="Your Name">
+    <select id="rating">
+        <option>5 - Excellent</option>
+        <option>4 - Very Good</option>
+        <option>3 - Good</option>
+        <option>2 - Average</option>
+        <option>1 - Poor</option>
+    </select>
+    <textarea id="comment" placeholder="Feedback"></textarea>
+    <button class="action" onclick="submitReview()">Submit</button>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment" class="page">
+    <h2>Payment</h2>
+    <input id="amount" type="number" placeholder="Enter Amount">
+    <select>
+        <option>UPI</option>
+        <option>Card</option>
+        <option>Cash</option>
+    </select>
+    <button class="action" onclick="makePayment()">Pay Now</button>
+</section>
+
+<!-- ADMIN -->
+<section id="admin" class="page">
+    <h2>Admin Panel</h2>
+    <ul id="adminBookings" class="admin-list"></ul>
+</section>
+
+<script>
+/* PAGE NAVIGATION */
+function showPage(id) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+/* CLASSES */
+class Event {
+    constructor(name, date, time, capacity, organizer) {
+        this.name = name;
+        this.date = date;
+        this.time = time;
+        this.capacity = capacity;
+        this.organizer = organizer;
+    }
+}
+
+class BanquetHall {
+    constructor(name, capacity) {
+        this.name = name;
+        this.capacity = capacity;
+        this.bookings = [];
+    }
+
+    isAvailable(date, time) {
+        return !this.bookings.some(b => b.date === date && b.time === time);
+    }
+
+    book(event) {
+        if (this.isAvailable(event.date, event.time) && event.capacity <= this.capacity) {
+            this.bookings.push(event);
+            return true;
+        }
+        return false;
+    }
+}
+
+/* DATA */
+const hall = new BanquetHall("Grand Hall", 500);
+
+/* FUNCTIONS */
+function bookHall() {
+    const event = new Event(
+        eventName.value,
+        eventDate.value,
+        eventTime.value,
+        guestCount.value,
+        customerName.value
+    );
+
+    if (hall.book(event)) {
+        alert("Booking Successful!");
+        updateAdmin();
+        showPage("payment");
+    } else {
+        alert("Booking Failed!");
+    }
+}
+
+function submitReview() {
+    alert("Thank you for your feedback!");
+}
+
+function makePayment() {
+    alert("Payment Successful!");
+}
+
+function updateAdmin() {
+    adminBookings.innerHTML = "";
+    hall.bookings.forEach(b => {
+        const li = document.createElement("li");
+        li.textContent = `${b.organizer} | ${b.name} | ${b.date} ${b.time}`;
+        adminBookings.appendChild(li);
+    });
+}
+</script>
+
+</body>
+</html>
+
+    
+    <p>
+        Follow us on Instagram :
+        <a href="https://instagram.com/jnpbanquet_25" target="_blank">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.xa0FgRBsvMi7bmVNCDYsCgHaHa?rs=1&pid=ImgDetMain&o=7&rm=32" width="20px" height="20px"
+            @jnpbanquet_25
+        </a>@jnpbanquet_25
+
+    </p>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919870672712" 
+   class="whatsapp-btn" 
+   target="_blank"
+   title="Chat on WhatsApp">
+    <img src="https://static.vecteezy.com/system/resources/previews/012/162/809/original/whatsapp-logo-3d-render-free-png.png"width="20px" height="20px"For more deatails contact on WhatsApp.
+</a>
+
+
+<!-- MAP LOCATION -->
+<section class="page active">
+    <h2>Our Location</h2>
+    <iframe 
+        src="https://www.google.com/maps?q=Naigaon%20East%20Maharashtra&output=embed"
+        width="100%" 
+        height="250" 
+        style="border:0; border-radius:8px;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+</section>
+<!-- ADMIN -->
+<section id="admin" class="page">
+    <h2>Admin Panel</h2>
+
+    <h3>Bookings</h3>
+    <ul id="adminBookings" class="admin-list"></ul>
+
+    <hr>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="ai-btn">🤖</div>
+
+<!-- AI Button -->
+<div id="ai-btn" onclick="toggleChat()">🤖</div>
+
+<!-- Chat Box -->
+<div id="chat-box">
+    <div id="chat-header">
+        AI Assistant (24/7)
+        <span onclick="toggleChat()">✖</span>
+    </div>
+
+    <div id="chat-body">
+        <div class="bot">Hello! 👋 How can I help you today?</div>
+    </div>
+
+    <div id="chat-footer">
+        <input type="text" id="user-input" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<style>
+chat-box {
+    position: fixed;
+    top: 80px;     /* opens just below the AI button */
+    right: 20px;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 4px 12px hsla(71, 100%, 45%, 0.993);
+    z-index: 1000;
+
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    font-size: 28px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
+ }
+ 
